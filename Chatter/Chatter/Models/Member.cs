@@ -7,5 +7,7 @@ namespace Chatter.Models
 {
     public class Member
     {
+        public int MemberID { get; set; }
+
     }
 }
