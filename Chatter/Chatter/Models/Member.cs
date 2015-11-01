@@ -12,6 +12,15 @@ namespace Chatter.Models
         [Required]
         [StringLength(maximumLength:20,ErrorMessage ="Please enter a name between 2 and 20 characters.",MinimumLength =2)]
         public string UserName { get; set; }
+        [Required]
+        [StringLength(maximumLength: 20, ErrorMessage = "Please enter a name between 2 and 20 characters.", MinimumLength = 2)]
+        public string DisplayName { get; set; }
+        [Required]
+        public DateTime DateJoined { get; set; }
+        public DateTime LastLogin { get; set; }
+        public Profile profile { get; set; }
+        public Friend friends { get; set; }
+        public string Messages { get; set; }
 
     }
 }
