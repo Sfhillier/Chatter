@@ -18,9 +18,9 @@ namespace Chatter.Models
         [Required]
         public DateTime DateJoined { get; set; }
         public DateTime LastLogin { get; set; }
-        public Profile profile { get; set; }
-        public Friend friends { get; set; }
-        public string Messages { get; set; }
+        public virtual Profile profile { get; set; }
+        public virtual Friend friends { get; set; }
+        public virtual Message Messages { get; set; }
 
     }
 }
