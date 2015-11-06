@@ -13,6 +13,6 @@ namespace Chatter.Models
         public string MessageText { get; set; }
         public DateTime DateSent { get; set; }
         public bool HasRead { get; set; }
-        public MessageID ThreadID { get; set; }
+        public Message ThreadID { get; set; }
     }
 }
