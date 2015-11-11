@@ -10,9 +10,11 @@ namespace Chatter.Models
     {
         [Required]
         public Member Recipient { get; set; }
+        [Required]
+        [Display(Name ="Message")]
         public string MessageText { get; set; }
         public DateTime DateSent { get; set; }
         public bool HasRead { get; set; }
-        public Message ThreadID { get; set; }
+        public int ThreadID { get; set; }
     }
 }
