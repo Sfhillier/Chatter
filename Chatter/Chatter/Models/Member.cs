@@ -8,6 +8,7 @@ namespace Chatter.Models
 {
     public class Member
     {
+        [Required]
         public int MemberID { get; set; }
         [Required]
         [StringLength(maximumLength:20,ErrorMessage ="Please enter a name between 2 and 20 characters.",MinimumLength =2)]

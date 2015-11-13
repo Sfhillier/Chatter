@@ -9,6 +9,8 @@ namespace Chatter.Models
     public class Message
     {
         [Required]
+        public int MessageID { get; set; }
+        [Required]
         public Member Recipient { get; set; }
         [Required]
         [Display(Name ="Message")]
