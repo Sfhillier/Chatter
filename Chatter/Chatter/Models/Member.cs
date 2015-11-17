@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -39,5 +40,29 @@ namespace Chatter.Models
         [Required]
         public virtual Message Message { get; set; }
 
+    }
+
+    public class MemberDBContext : DbContext
+    {
+        public DbSet<Member> Members { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Member>()
+              .HasOptional<Profile>(m => m.Profile)
+              .WithRequired(m => m.Member)
+              .Map(p => p.MapKey("MemberId"));
+
+            modelBuilder.Entity<Member>()
+            .HasOptional<Friend>(m => m.Friend)
+            .WithRequired(m => m.Member)
+            .Map(p => p.MapKey("FriendId"));
+
+            modelBuilder.Entity<Member>()
+            .HasOptional<Message>(m => m.Message)
+            .WithRequired(m => m.Member)
+            .Map(p => p.MapKey("MessageId"));
+        }
     }
 }

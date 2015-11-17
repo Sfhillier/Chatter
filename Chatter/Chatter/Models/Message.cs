@@ -8,10 +8,12 @@ namespace Chatter.Models
 {
     public class Message
     {
+        internal Member Member;
+
         [Required]
         public int MessageID { get; set; }
         [Required]
-        public Member Recipient { get; set; }
+        public virtual Member Recipient { get; set; }
         [Required]
         [Display(Name ="Message")]
         public string MessageText { get; set; }
