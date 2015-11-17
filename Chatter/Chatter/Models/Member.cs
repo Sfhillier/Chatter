@@ -44,7 +44,7 @@ namespace Chatter.Models
 
     public class MemberDBContext : DbContext
     {
-        public DbSet<Member> Members { get; set; }
+        public DbSet<Member> MyMember { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -52,7 +52,7 @@ namespace Chatter.Models
             modelBuilder.Entity<Member>()
               .HasOptional<Profile>(m => m.Profile)
               .WithRequired(m => m.Member)
-              .Map(p => p.MapKey("MemberId"));
+              .Map(p => p.MapKey("ProfileId"));
 
             modelBuilder.Entity<Member>()
             .HasOptional<Friend>(m => m.Friend)
