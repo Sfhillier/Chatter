@@ -21,22 +21,12 @@ namespace Chatter.Models
         [Required]
         public DateTime DateJoined { get; set; }
         public DateTime LastLogin { get; set; }
-        [Key, ForeignKey("ProfileID")]
-        [Column(Order =0)]
         [Required]
         public int ProfileID { get; set; }
         [Required]
         public virtual Profile Profile { get; set; }
-        [Key, ForeignKey("FriendID")]
-        [Column(Order =1)]
-        [Required]
-        public int FriendID { get; set; }
         [Required]
         public virtual Friend Friend { get; set; }
-        [Key, ForeignKey("MessageID")]
-        [Column(Order =2)]
-        [Required]
-        public int MessageID { get; set; }
         [Required]
         public virtual Message Message { get; set; }
 
@@ -53,16 +43,8 @@ namespace Chatter.Models
               .HasOptional<Profile>(m => m.Profile)
               .WithRequired(t => t.Member)
               .Map(p => p.MapKey("MemberID"));
-
-            modelBuilder.Entity<Member>()
-            .HasOptional<Friend>(m => m.Friend)
-            .WithRequired(t => t.Member)
-            .Map(p => p.MapKey("MemberID"));
-
-            modelBuilder.Entity<Member>()
-            .HasOptional<Message>(m => m.Message)
-            .WithRequired(t => t.Member)
-            .Map(p => p.MapKey("MemberID"));
         }
+
+        public System.Data.Entity.DbSet<Chatter.Models.Profile> Profiles { get; set; }
     }
 }
