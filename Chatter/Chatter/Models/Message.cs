@@ -13,6 +13,8 @@ namespace Chatter.Models
         [Required]
         public int MessageID { get; set; }
         [Required]
+        public int MemberID { get; set; }
+        [Required]
         public virtual Member Recipient { get; set; }
         [Required]
         [Display(Name ="Message")]

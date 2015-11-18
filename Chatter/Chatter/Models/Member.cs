@@ -51,18 +51,18 @@ namespace Chatter.Models
 
             modelBuilder.Entity<Member>()
               .HasOptional<Profile>(m => m.Profile)
-              .WithRequired(m => m.Member)
-              .Map(p => p.MapKey("ProfileId"));
+              .WithRequired(t => t.Member)
+              .Map(p => p.MapKey("MemberID"));
 
             modelBuilder.Entity<Member>()
             .HasOptional<Friend>(m => m.Friend)
-            .WithRequired(m => m.Member)
-            .Map(p => p.MapKey("FriendId"));
+            .WithRequired(t => t.Member)
+            .Map(p => p.MapKey("MemberID"));
 
             modelBuilder.Entity<Member>()
             .HasOptional<Message>(m => m.Message)
-            .WithRequired(m => m.Member)
-            .Map(p => p.MapKey("MessageId"));
+            .WithRequired(t => t.Member)
+            .Map(p => p.MapKey("MemberID"));
         }
     }
 }
