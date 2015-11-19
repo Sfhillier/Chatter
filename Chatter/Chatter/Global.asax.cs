@@ -11,6 +11,10 @@ namespace Chatter
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        void Session_Start(object sender, EventArgs e)
+        {
+            Response.Redirect("~/members/index");
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
